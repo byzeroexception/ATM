@@ -1,0 +1,118 @@
+import java.util.*;
+import javax.swing.*;
+import java.awt.*;
+
+public class ATM {
+	public static  JFrame LOGİNMENU = new JFrame();
+//	public static  JFrame PAGENAME  = new JFrame();
+//	public static  JFrame PAGENAME2 = new JFrame();
+	public static JPanel MainPanel = new JPanel();
+	public static JPanel welcomPanel = new JPanel();
+	public static JPanel LoginNamePanel = new JPanel();
+	public static JPanel LoginPassPanel = new JPanel();
+
+	/*          INFO
+	 * LMESSAGE       > welcom
+	 * LNAME          > UserName/Customer number
+	 * LPASS          > Password
+	 * MainPanel      > PAGE1
+	 * welcomPanel    > LMESSAGE>>Text
+	 * LoginNamePanel > LNAME>>Text
+	 * LoginPassPanel > LPASS>>Text
+	 */
+	public static JLabel LMESSAGE = new JLabel();
+	public static JLabel LNAME = new JLabel();
+	public static JLabel LPASS = new JLabel();
+	
+	public static JTextField  LNAME1 = new JTextField(10);
+	public static JTextField  LPASS1 = new JTextField();
+	
+	public static JButton SUBMİT = new JButton();
+	
+	
+	static void MainPanel() {
+		MainPanel.setLayout(null);
+		MainPanel.setBackground(Color.DARK_GRAY);
+		MainPanel.setBounds(0, 0, 600, 400);
+	}
+	static void welcomPanel() {
+		welcomPanel.setBackground(Color.DARK_GRAY);
+		welcomPanel.setBounds(0, 20, 585, 50);
+	}
+	static void LoginMessage() {
+		LMESSAGE.setText("PARABANK'A HOŞGELDİNİZ");
+		LMESSAGE.setForeground(Color.white);
+		LMESSAGE.setFont(new Font("Serif", Font.PLAIN, 25));
+		LMESSAGE.setBounds(140, 10, 500, 30);
+		 
+	}
+	static void LoginCustomerPanel() {
+		
+		LoginNamePanel.setBackground(Color.RED);
+		LoginNamePanel.setBounds(35, 150, 200, 30);
+		LoginNamePanel.setBorder(BorderFactory.createEmptyBorder(-2, 0, 0, -10));
+	}
+  	static void LoginCustomerLabel() {
+		
+//		 LoginNamePanel.setBorder(BorderFactory.createEmptyBorder(30, 10, 10, 320));
+		LNAME.setText("MÜŞTERİ NUMARASI : ");
+		LNAME.setForeground(Color.white);
+		LNAME.setFont(new Font("Serif", Font.PLAIN, 18));
+		LNAME.setBounds(10, 10, 10,10);
+		
+		
+	}
+	static void LoginPassPanel() {
+		LoginPassPanel.setBackground(Color.RED);
+		LoginPassPanel.setBounds(35, 180, 200, 30);
+		LoginPassPanel.setBorder(BorderFactory.createEmptyBorder(-2, 0, 0,-140));
+		
+	}
+	static void LoginPasswordLabel() {
+
+		LPASS.setText("ŞİFRE : ");
+		LPASS.setForeground(Color.white);
+		LPASS.setFont(new Font("Serif", Font.PLAIN, 18));
+		LPASS.setBounds(10, 10, 10, 10);
+		
+	}
+	static void TextNamePanel() {
+		
+	}
+	static void LoginMenu() {
+		LOGİNMENU.setLayout(null);
+		LOGİNMENU.getContentPane().setBackground(Color.DARK_GRAY);
+		LOGİNMENU.setSize(600,400);
+		LOGİNMENU.setLocation(600,300);
+		LOGİNMENU.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		LOGİNMENU.setResizable(false);
+		LOGİNMENU.setVisible(true);
+		
+		addBlok();
+	}
+	static void addBlok() {
+	MainPanel.add(welcomPanel);
+		welcomPanel.add(LMESSAGE);
+			welcomPanel();
+				LoginMessage();
+				
+				MainPanel.add(LoginNamePanel);
+					LoginNamePanel.add(LNAME);
+						LoginNamePanel.add(LNAME1);
+							LoginCustomerPanel();
+								LoginCustomerLabel();
+				
+										MainPanel.add(LoginPassPanel);
+											LoginPassPanel.add(LPASS);
+												LoginPassPanel();
+													LoginPasswordLabel();
+												
+												
+		 
+		LOGİNMENU.add(MainPanel);
+		MainPanel();
+	}
+	public static void main(String [] args) {
+		LoginMenu();
+	}
+}
